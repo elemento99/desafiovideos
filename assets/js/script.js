@@ -1,6 +1,4 @@
-const musica = document.querySelector("#musica")
-const pelicula = document.querySelector("#peliculas")
-const serie = document.querySelector("#series")
+
 
 const iffeDOM = (() => {
     function funcionPrivada(url, id) {
@@ -26,7 +24,9 @@ class Multimedia{
     get url(){
         return this.#url
     }
-    
+    set url(value) {
+        this.#url = value
+    }
     setInicio(tiempoEnSegundos) {
         this.#url += `?&t=${tiempoEnSegundos}`;
         return `Se ha establecido el tiempo de inicio en ${tiempoEnSegundos} segundos.`;
@@ -44,22 +44,24 @@ class Reproductor extends Multimedia{
     playMultimedia(){
         iffeDOM.funcionPublica(this.url, this._id)
     }
+
+
     setInicio(tiempoEnSegundos) {
-        this.url += `?&t=${tiempoEnSegundos}?enablejsapi=1`;
+        this.url += `;start=${tiempoEnSegundos}`;
         return `Se ha establecido el tiempo de inicio en ${tiempoEnSegundos} segundos.`;
     }
 }
 
 //instancias
 
-const musica1 = new Reproductor ("https://youtu.be/QCr9kHfditE?si=CNI5NJTOZ2nHfxkg", "musica")
+const musica1 = new Reproductor ("https://www.youtube.com/embed/QCr9kHfditE?si=ZujueozIFck3bPKf", "musica")
 const pelicula1 = new Reproductor("https://www.youtube.com/embed/5PSNL1qE6VY", "pelicula")
-const series1 = new Reproductor("https://www.youtube.com/watch?v=1iTMm7agE3M", "series")
+const series1 = new Reproductor("https://www.youtube.com/embed/1iTMm7agE3M?si=3nkvt_Tmv1uibFGt", "series")
+
+musica1.setInicio(100)
+pelicula1.setInicio(5)
+series1.setInicio(160)
 
 musica1.playMultimedia()
 pelicula1.playMultimedia()
 series1.playMultimedia()
-
-musica1.setInicio(10)
-pelicula1.setInicio(5)
-series1.setInicio(160)
