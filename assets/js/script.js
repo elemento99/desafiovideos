@@ -11,9 +11,9 @@ const iffeDOM = (() => {
     }
 })()
 
-iffeDOM.funcionPublica("https://www.youtube.com/watch?v=4L_1COHkjuY", "musica")
-iffeDOM.funcionPublica("https://www.tokyvideo.com/es/video/trailer-vose-requiem-el-exorcismo-de-micaela", "pelicula")
-iffeDOM.funcionPublica("https://www.youtube.com/watch?v=i1eJMig5Ik4", "serie")
+//iffeDOM.funcionPublica("https://www.youtube.com/watch?v=4L_1COHkjuY", "musica")
+//iffeDOM.funcionPublica("https://www.tokyvideo.com/es/video/trailer-vose-requiem-el-exorcismo-de-micaela", "pelicula")
+//iffeDOM.funcionPublica("https://www.youtube.com/watch?v=i1eJMig5Ik4", "serie")
 
 
 class Multimedia{
@@ -32,7 +32,6 @@ class Multimedia{
         return `Se ha establecido el tiempo de inicio en ${tiempoEnSegundos} segundos.`;
     }
 }
-
 
 class Reproductor extends Multimedia{
     _id;
